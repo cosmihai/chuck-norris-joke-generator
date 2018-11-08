@@ -27,7 +27,12 @@ function getJokes(e) {
 function displayJoke(data) {
   const item = document.createElement('li');
   item.innerHTML = `${data.value}<hr>`;
-  list.appendChild(item);
+  const sibling = document.querySelector('li');
+  if (sibling === null) {
+    list.appendChild(item);
+  }else {
+    list.insertBefore(item, sibling);
+  }
 }
 
 function cleartJokes() {
